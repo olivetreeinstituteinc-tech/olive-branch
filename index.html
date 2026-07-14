@@ -145,6 +145,44 @@
   }
   .menu-steps li{ margin-bottom:6px; }
   .menu-sub{ font-size:12.5px; color: var(--ink-soft); margin:0 0 12px; }
+
+  .view-tabs{
+    display:flex; justify-content:center; gap:4px;
+    background:#fff;
+    border:1.5px solid var(--line);
+    border-radius:999px;
+    padding:4px;
+    max-width:220px;
+    margin: 6px auto 22px;
+  }
+  .view-tab{
+    flex:1;
+    border:none; background:none;
+    padding:8px 16px;
+    border-radius:999px;
+    font-family: var(--font-body);
+    font-size:13.5px; font-weight:700;
+    color: var(--ink-soft);
+    cursor:pointer;
+  }
+  .view-tab.active{
+    background: var(--oti-green);
+    color:#fff;
+  }
+  .view-tab:focus-visible{
+    outline: 3px solid var(--oti-green); outline-offset:2px;
+  }
+
+  .view-panel{ display:none; text-align:left; }
+  .view-panel.is-active{ display:block; }
+  #playView.is-active{ text-align:center; }
+
+  #aboutView p{
+    font-size:13px; line-height:1.65; color: var(--ink); margin:0 0 12px;
+  }
+  #aboutView a{
+    color: var(--oti-green-soft); font-weight:700; text-decoration:underline;
+  }
   .menu-actions{ display:flex; gap:10px; flex-wrap:wrap; }
   .menu-note{ font-size:11.5px; color: var(--oti-green-soft); margin-top:10px; min-height:14px; font-weight:600; }
 
@@ -414,6 +452,12 @@
     <button class="menu-btn" id="menuBtn" type="button">How to Play &amp; Settings</button>
   </header>
 
+  <div class="view-tabs">
+    <button type="button" class="view-tab active" id="tabPlayBtn" data-view="play">Play</button>
+    <button type="button" class="view-tab" id="tabAboutBtn" data-view="about">About</button>
+  </div>
+
+  <div class="view-panel is-active" id="playView">
   <div class="cat-row" id="catRow"></div>
 
   <div class="stage">
@@ -450,6 +494,15 @@
 
   <p class="footnote">Works fully offline, right in this browser tab. Nothing to install.<br>
   <span class="brand-credit">Olive Tree Institute</span> &middot; Milton, Ontario &middot; <a href="https://www.instagram.com/olive.tree.institute/" target="_blank" rel="noopener noreferrer">@olive.tree.institute</a></p>
+  </div>
+
+  <div class="view-panel" id="aboutView">
+    <p>Communication is the foundation for almost everything else worth building: leadership, public speaking, confidence, the simple ability to know what you think and say it clearly. That foundation doesn't get built on a stage. It gets built at a table, in ordinary conversations, usually years before anyone is thinking about leadership at all. That is what Olive Branch is actually for.</p>
+    <p>Most conversation card games get played once and put in a drawer. This one is built to be picked up again and again: hundreds of questions across seven categories, most of them written to be asked a second and third time, months or years apart, landing somewhere new each time because the person answering has changed.</p>
+    <p>Two things back that up. Psychologist Arthur Aron's well-known <a href="https://ggia.berkeley.edu/practice/36_questions_for_increasing_closeness" target="_blank" rel="noopener noreferrer">1997 study</a> on closeness found that gradual, back-and-forth self-disclosure, not one big confession, is what actually brings people closer, which is why each category here moves from light to deeper instead of starting heavy. Emory University researchers Marshall Duke and Robyn Fivush found that kids who know their own family's stories, how their parents met, what the family has been through, show measurably more resilience and self-esteem, using what they called the <a href="https://www.seattlefoundation.org/the-do-you-know-scale/" target="_blank" rel="noopener noreferrer">Do You Know scale</a>. That finding shaped the Family Time &amp; Memories category directly.</p>
+    <p>Olive Branch is a branch of Olive Tree Institute's wider work: a Milton, Ontario organization building programs in public speaking, leadership, and personal development for youth and adults, rooted in Islamic values. Kids who grow up being listened to become adults who know how to listen, and how to speak up when it counts. That is the belief underneath this deck, and everything else Olive Tree Institute builds.</p>
+    <p><a href="https://www.instagram.com/olive.tree.institute/" target="_blank" rel="noopener noreferrer">Follow @olive.tree.institute on Instagram</a></p>
+  </div>
 </div>
 
 <div class="menu-overlay" id="menuOverlay">
@@ -508,7 +561,45 @@ function runApp(){
       "If our family had a theme song, what would it be?",
       "What's the goofiest walk you can invent? Show us.",
       "If you could turn any chore into a game, which one and how?",
-      "What's your go-to silly face? Make it now."
+      "What's your go-to silly face? Make it now.",
+      "If you had to give everyone in this family a silly nickname right now, what would you pick?",
+      "What's the weirdest thing you've ever seen someone eat on a dare?",
+      "If you could add one ridiculous rule to our family for a week, what would it be?",
+      "What's a food you refuse to let touch any other food on your plate?",
+      "If you could only communicate in sound effects for a day, what would be your go-to noise?",
+      "What's the most useless talent you have? Show us.",
+      "If our family were a type of weather, what would we be?",
+      "What's the silliest name you can invent for a new ice cream flavor?",
+      "If you had to wear socks on your hands for a whole day, how would you get through it?",
+      "What's a smell you secretly love that most people think is gross?",
+      "If you could turn into any household object for an hour, what would you pick and why?",
+      "What's the funniest word in the English language, just because of how it sounds?",
+      "If you had to invent a secret handshake for this family right now, what would the first move be?",
+      "What's the weirdest dream you can remember?",
+      "If our family had a mascot, what animal should it be?",
+      "What's the silliest way you can think of to say good morning without using words?",
+      "If you could make one everyday object make a funny sound every time it's used, what would you pick?",
+      "What's a food combination you're convinced nobody else has ever tried?",
+      "If you had to give a dramatic movie-trailer voice to something boring that happened today, what would you narrate?",
+      "What's the goofiest nickname you've ever been called?",
+      "If you could swap voices with anyone in this family for an hour, who would you pick and what would you say?",
+      "What's the weirdest fact you know that always makes people laugh?",
+      "If you had to design a wacky obstacle course using only things in this room, what's the first obstacle?",
+      "What's a silly superstition you actually kind of believe?",
+      "If you could only eat foods that are one color for a whole day, what color would you choose?",
+      "What's the funniest costume you've ever seen or worn?",
+      "If you had to invent a new holiday just for silly reasons, what would it celebrate?",
+      "What's the weirdest thing that's ever made you laugh so hard you couldn't breathe?",
+      "If you could add a sound effect to your own footsteps, what would it be?",
+      "What's a ridiculous world record you think you could actually break?",
+      "If you had to be the mascot for our family's favorite meal, what would your costume look like?",
+      "What's the strangest thing you've ever found in your pocket?",
+      "If our family started our own made-up sport, what would the rules be?",
+      "What's the silliest way you like to answer the phone?",
+      "If you could make everyone in this family laugh with just one word, what word would you use?",
+      "What's a weird habit you have that you don't think is weird at all?",
+      "If you had a tail for a day, what would you use it for?",
+      "What's the goofiest dance move you can invent right now? Show us."
     ]},
     { key:"thisorthat", label:"This or That", emoji:"\u{1F914}", accent:"#4F7385", bg:"#E9F1F3", qs:[
       "Mountains or the ocean?",
@@ -522,7 +613,45 @@ function runApp(){
       "One best friend or a big group of friends?",
       "Know how a movie ends before you watch it, or be surprised?",
       "Live in a treehouse or a houseboat?",
-      "Get a compliment or give one?"
+      "Get a compliment or give one?",
+      "Sweet or salty?",
+      "Mornings or nights?",
+      "Big city or small town?",
+      "Text someone or call them?",
+      "Neat and tidy or a little bit messy?",
+      "Talk it out or think it through alone first?",
+      "Plan every detail or go with the flow?",
+      "Be really good at one thing or pretty good at a lot of things?",
+      "Hot weather or cold weather?",
+      "Loud parties or quiet hangouts?",
+      "Have the last word or let someone else have it?",
+      "A pool or a trampoline?",
+      "Watch the sunrise or the sunset?",
+      "Be able to talk to animals or speak every human language?",
+      "New adventure or comfortable routine?",
+      "Save your money or spend it right away?",
+      "Be really tall or really fast?",
+      "Spicy food or mild food?",
+      "A big birthday party or a quiet one with just family?",
+      "Never have to clean your room again, or never have to do homework again?",
+      "Always know what people are thinking, or always know what's about to happen?",
+      "Handwritten notes or voice messages?",
+      "Explore space or explore the ocean?",
+      "Be famous for something small or unknown for something big?",
+      "Have unlimited pizza or unlimited ice cream for a year?",
+      "Sing in front of a crowd or dance in front of a crowd?",
+      "A rainy day inside or a sunny day outside?",
+      "Always be five minutes early or always be five minutes late?",
+      "Be the one who tells the joke or the one who laughs the hardest?",
+      "Learn a new language or learn a new instrument?",
+      "A treehouse fort or an underground fort?",
+      "Win a small prize for sure or take a chance at a big one?",
+      "Be really strong or really smart?",
+      "A week with no screens or a week with no sweets?",
+      "Make people laugh or make people think?",
+      "Start your own tradition or keep an old one going?",
+      "Take the scenic route or the fast route?",
+      "Be surprised with a gift or pick it out yourself?"
     ]},
     { key:"family", label:"Family Time & Memories", emoji:"\u{1F3E1}", accent:"#3F6B4A", bg:"#EAF0EA", qs:[
       "What is your favorite memory of our family together?",
@@ -536,7 +665,45 @@ function runApp(){
       "What is one thing you would want to teach your own kids someday?",
       "What is a photo of our family that you love, and why?",
       "Tell us about a recent day you think we were proud of you.",
-      "What is something small someone in this family does that makes you feel loved?"
+      "What is something small someone in this family does that makes you feel loved?",
+      "Do you know the story of how two people in this family first met? Tell it if you do.",
+      "What do you know about where our family name comes from?",
+      "Who in this family do you think you act the most like, and why?",
+      "What is a story about this family that always gets told at gatherings?",
+      "What is something hard our family got through together, and how did we do it?",
+      "What do you know about the day you were born, or the day you joined this family?",
+      "What job did someone in this family have when they were young that surprised you?",
+      "What is a food that always reminds you of this family?",
+      "What is something you know now that you wish you'd known when you were younger?",
+      "What is a family tradition from someone else's family that you wish we had?",
+      "What is the story behind your name, if you know it?",
+      "What do you think this family will be doing together ten years from now?",
+      "What is a skill someone in this family taught you that you still use?",
+      "What is something about our family that would surprise someone who just met us?",
+      "What is a song that reminds you of this family?",
+      "Tell us about a time this family celebrated something big.",
+      "What is a place that means something to this family, and why?",
+      "What do you think is the thing this family is best at, together?",
+      "What is a piece of advice someone in this family gave you that stuck?",
+      "What is something you hope people say about this family someday?",
+      "What is a mistake this family made and grew from?",
+      "What is a family saying or phrase we use that outsiders wouldn't understand?",
+      "What is something you've noticed changes about this family every year?",
+      "Who is someone in this family's history, even someone you never met, that you wish you knew more about?",
+      "What is a game or activity that always brings this family together?",
+      "What is something this family does differently than most families you know?",
+      "What is a moment you felt like this family really understood you?",
+      "What is something you and one other person in this family share that's just between you two?",
+      "What is the loudest this family has ever laughed together?",
+      "What is a family rule you think you'll keep when you have your own home someday?",
+      "What is something this family has taught you about handling hard days?",
+      "What is a memory you think a younger sibling or cousin might not remember, that you want to tell them about?",
+      "What is something you want to make sure this family always remembers?",
+      "What is a challenge this family faced that made us closer instead of pulling us apart?",
+      "What is something you've learned about patience from being part of this family?",
+      "What is a small everyday moment with this family that you didn't realize you'd remember?",
+      "What is something about how this family shows love that's different from how other families do it?",
+      "What is one thing you would want future generations of this family to know about us?"
     ]},
     { key:"imagine", label:"Imagine If", emoji:"\u{1F4AD}", accent:"#7A5678", bg:"#F2EBF1", qs:[
       "If you could design your own holiday, what would it celebrate?",
@@ -550,7 +717,45 @@ function runApp(){
       "If animals ran the school, what subjects would they teach?",
       "If you had a superpower that only worked on Tuesdays, what would it be?",
       "If you could make one food never run out at home, what would it be?",
-      "If our family started a business together, what would it sell?"
+      "If our family started a business together, what would it sell?",
+      "If you could combine two animals to make a new pet, what would it be?",
+      "If you could live inside any book, movie, or show, which world would you choose?",
+      "If you could make one rule that every kid in the world had to follow, what would it be?",
+      "If you could talk to yourself five years from now, what would you ask?",
+      "If you could shrink any problem down to the size of a pebble, what problem would you shrink first?",
+      "If you could add a new room to our home, what would it be for?",
+      "If you could trade places with anyone for a day, who would it be?",
+      "If you could invent a new color, what would it look like and what would you name it?",
+      "If our family could travel anywhere using a magic door, where would we go first?",
+      "If you could freeze time for everyone but yourself for one hour, what would you do?",
+      "If you could turn any object in this room into something useful, what would you change it into?",
+      "If you could design the perfect weekend, what would it look like from morning to night?",
+      "If you had to build a robot to help this family, what would its one job be?",
+      "If you could know the answer to any one question in the world, what would you ask?",
+      "If you could make one chore disappear forever, which one would you erase?",
+      "If you could give this family a superpower, what would it be?",
+      "If you could redesign school completely, what would the first class of the day be?",
+      "If you could shrink down and ride on a bird for a day, where would you go?",
+      "If you could add one law to keep everyone kind, what would it say?",
+      "If our family had our own island, what would we name it?",
+      "If you could make time move faster or slower for one thing in your life, what would you choose?",
+      "If you could invent a machine that did one thing perfectly, what would it do?",
+      "If you could give every house in the world one new feature, what would it be?",
+      "If you could be any age for just one day, what age would you pick and why?",
+      "If you could make one myth or legend real, which one would you choose?",
+      "If you could plant a garden that grew anything, even things that aren't real, what would you grow?",
+      "If you could send a message back in time to yourself as a little kid, what would it say?",
+      "If you could turn one everyday sound into music, which sound would you choose?",
+      "If you could build a treehouse in the clouds, what would you need to get up there?",
+      "If our family had a superhero team name, what would it be?",
+      "If you could make one imaginary creature real, which one and why?",
+      "If you could redesign the calendar, what new holiday would you add first?",
+      "If you could give every person in the world one thing they need, what would you give?",
+      "If you could turn invisible for one hour, what's the first thing you'd do?",
+      "If you could build your dream classroom, what would be in it?",
+      "If you could make one everyday task feel like a game, which one would you pick?",
+      "If you could ask any historical figure one question, who would you ask and what would you say?",
+      "If you could design a theme park based on our family, what would the first ride be?"
     ]},
     { key:"feelings", label:"Feelings & Growing Up", emoji:"\u{1F331}", accent:"#B36572", bg:"#FAEBED", qs:[
       "What is something that made you feel brave this year?",
@@ -564,7 +769,45 @@ function runApp(){
       "What is a compliment someone gave you recently that stuck with you?",
       "What is something you wish grown-ups understood better about kids your age?",
       "What is a way someone showed you kindness recently?",
-      "What is something you are working on getting better at?"
+      "What is something you are working on getting better at?",
+      "What is something that's harder for you than it looks like it is for other people?",
+      "What is a time you stood up for yourself or someone else?",
+      "What is something you do differently than you did a year ago?",
+      "What is a worry you have that you haven't told anyone?",
+      "What is something that helps you feel brave before doing something new?",
+      "What is a time you felt really proud of someone else in this family?",
+      "What is something you're still figuring out about yourself?",
+      "What is a feeling you've gotten better at naming as you've gotten older?",
+      "What is something you do when you need space, and is that okay with everyone?",
+      "What is a time you forgave someone, even though it was hard?",
+      "What is something that makes you feel safe?",
+      "What is a time you changed your mind about something important?",
+      "What is something you've learned about yourself from a hard day?",
+      "What is a compliment you find hard to believe about yourself, even when it's true?",
+      "What is something you do to cheer yourself up?",
+      "What is a time you were disappointed but handled it well?",
+      "What is something you're learning to be patient with, in yourself or someone else?",
+      "What is a feeling you have that you think other people your age don't talk about enough?",
+      "What is something that used to embarrass you that doesn't anymore?",
+      "What is a time someone believed in you before you believed in yourself?",
+      "What is something you do that helps someone else in this family feel better?",
+      "What is a boundary you've set that you're proud of?",
+      "What is something about growing up that you're excited about?",
+      "What is something about growing up that feels a little scary?",
+      "What is a time you asked for help instead of trying to do everything alone?",
+      "What is something you've forgiven yourself for?",
+      "What is a way you show love that might not look like how other people show it?",
+      "What is something you do when someone else is upset, to help them feel okay?",
+      "What is a time being honest was hard but worth it?",
+      "What is something you need more of right now, rest, fun, quiet, or attention?",
+      "What is a strength you have that took you a while to notice in yourself?",
+      "What is something you used to believe about yourself that you don't believe anymore?",
+      "What is a time you felt left out, and what helped?",
+      "What is something that instantly puts you in a better mood?",
+      "What is a way you've grown that someone else in this family has noticed?",
+      "What is something you wish you could tell your younger self?",
+      "What is a feeling you have this week that you haven't said out loud yet?",
+      "What is something you appreciate about how your brain or body works, even the parts that are sometimes hard?"
     ]},
     { key:"dreams", label:"Dreams, Goals & Gratitude", emoji:"\u{1F320}", accent:"#2E7268", bg:"#E7F2F0", qs:[
       "What is something you want to be really good at someday?",
@@ -578,7 +821,45 @@ function runApp(){
       "What is one goal you have for this year?",
       "What is something someone in this family has taught you lately?",
       "If you could thank one person for something they did for you recently, who would it be?",
-      "What is a way you want to make the world a little better?"
+      "What is a way you want to make the world a little better?",
+      "What is a small thing that made today better than yesterday?",
+      "What is something you're looking forward to this month?",
+      "What is a skill you have now that you didn't have a year ago?",
+      "What is something you own that you're genuinely grateful for?",
+      "What is a goal you have that has nothing to do with school or work?",
+      "What is something beautiful you noticed recently?",
+      "What is a habit you're trying to build?",
+      "What is something you're grateful this family has, that not every family has?",
+      "What is a moment this week that felt easy, when it could have been hard?",
+      "What is something you hope is still true about you in ten years?",
+      "What is a risk you're glad you took?",
+      "What is something you're grateful you learned the hard way?",
+      "What is a place that already feels like home to you?",
+      "What is something you want to get braver about?",
+      "What is a small win you had this week that no one else noticed?",
+      "What is something you'd like to be known for?",
+      "What is a piece of advice you'd give someone starting something new?",
+      "What is something you're grateful your body or mind lets you do?",
+      "What is a goal you have for how you treat people this year?",
+      "What is something you want to understand better?",
+      "What is a person outside this family you're grateful for?",
+      "What is something you hope to get to do again someday?",
+      "What is a way you've helped someone reach one of their goals?",
+      "What is something you used to think was impossible that doesn't feel that way anymore?",
+      "What is a quality you hope you never lose as you grow up?",
+      "What is something small you could do this week that your future self would thank you for?",
+      "What is a moment of luck or good timing you're grateful for?",
+      "What is something you want to try that scares you a little?",
+      "What is a comfort you're grateful for on hard days?",
+      "What is something you've gotten to experience that you don't take for granted?",
+      "What is a goal you have that would surprise people who know you?",
+      "What is something you're proud you finished, even if it took a long time?",
+      "What is a way you want to spend more time this year?",
+      "What is something you're grateful someone taught you before you needed it?",
+      "What is a dream you had as a little kid that you still think about?",
+      "What is something you want future you to remember about right now?",
+      "What is a way you've already started becoming the person you want to be?",
+      "What is something ordinary about your life that you'd miss if it were gone?"
     ]},
     { key:"faith", label:"Faith & Gratitude", emoji:"\u{1F932}", accent:"#8B4A52", bg:"#F5E9EA", qs:[
       "What's a story from the Quran that means something to you right now, and why?",
@@ -592,7 +873,45 @@ function runApp(){
       "What's a value from our deen you are really trying to live by these days?",
       "Who do you know that reminds you of good akhlaq, good character?",
       "What's something that happened this week that you are grateful to Allah for?",
-      "What's one thing you would like to grow in this year, for yourself and for Allah?"
+      "What's one thing you would like to grow in this year, for yourself and for Allah?",
+      "What is a dua you'd want to teach someone younger than you?",
+      "What is something about Allah's creation that amazes you?",
+      "What is a moment this week you remembered Allah without anyone reminding you?",
+      "What is something you love about going to the masjid, or praying as a family?",
+      "Who is a companion of the Prophet, peace be upon him, whose story you find interesting?",
+      "What is something sabr (patience) has taught you recently?",
+      "What is a small act of worship that feels big to you?",
+      "What is something you're grateful Allah has forgiven you for?",
+      "What is a value from Islam that you think the world needs more of right now?",
+      "What is something you know about the Prophet's, peace be upon him, character that you try to copy?",
+      "What is a moment you felt Allah answered a dua?",
+      "What is something you want to ask Allah for this week?",
+      "What is a surah or ayah that you find comforting?",
+      "What is something about your faith that you're still learning?",
+      "What is a way our family shows our deen in everyday life?",
+      "What is something you're grateful to have been taught about Islam?",
+      "What is a story from the Quran that surprised you the first time you heard it?",
+      "What is something good you did today that you didn't tell anyone about?",
+      "What is a way you try to be a good example to someone younger?",
+      "What is something you love about being part of the ummah, the wider Muslim community?",
+      "What is a moment of gratitude to Allah you had today, even a small one?",
+      "What is something about salah (prayer) that feels different to you now than when you were younger?",
+      "What is a hadith or saying you've heard that stuck with you?",
+      "What is something you'd like to change about yourself for the sake of Allah?",
+      "What is a way your family has helped someone else this year?",
+      "What is something you're grateful Allah gave you that you didn't ask for?",
+      "What is a moment you chose to be kind even when it was hard, for the sake of Allah?",
+      "What is something about Jannah (paradise) that you hope for?",
+      "What is a fear you've brought to Allah in dua?",
+      "What is something you love about Jumu'ah, Friday prayer?",
+      "What is a way you want to grow closer to the Quran this year?",
+      "What is something you're thankful Allah protected you from?",
+      "What is a moment you felt forgiveness, giving it or receiving it?",
+      "What is something about how our family celebrates faith that you'd want to pass on?",
+      "What is a way you try to control your anger or impatience?",
+      "What is something you know about a prophet's family that inspires you?",
+      "What is a small sunnah, something the Prophet, peace be upon him, did, that you try to practice?",
+      "What is something you hope Allah is proud of you for right now?"
     ]},
     { key:"wildcard", label:"Wildcard", emoji:"\u{1F3B2}", accent:"#C49A1A", bg:"#FBF3DE", qs:[
       "FREE PASS: Skip this turn. No explaining needed.",
@@ -805,6 +1124,10 @@ function runApp(){
     journalSave: document.getElementById("journalSave"),
     journalCancel: document.getElementById("journalCancel"),
     menuBtn: document.getElementById("menuBtn"),
+    tabPlayBtn: document.getElementById("tabPlayBtn"),
+    tabAboutBtn: document.getElementById("tabAboutBtn"),
+    playView: document.getElementById("playView"),
+    aboutView: document.getElementById("aboutView"),
     menuOverlay: document.getElementById("menuOverlay"),
     menuClose: document.getElementById("menuClose"),
     journalCount: document.getElementById("journalCount"),
@@ -1022,6 +1345,16 @@ function runApp(){
     renderJournalUI(state.currentItem);
     updateJournalCount();
   });
+
+  function showView(view){
+    const isPlay = view === "play";
+    els.playView.classList.toggle("is-active", isPlay);
+    els.aboutView.classList.toggle("is-active", !isPlay);
+    els.tabPlayBtn.classList.toggle("active", isPlay);
+    els.tabAboutBtn.classList.toggle("active", !isPlay);
+  }
+  els.tabPlayBtn.addEventListener("click", function(){ showView("play"); });
+  els.tabAboutBtn.addEventListener("click", function(){ showView("about"); });
 
   els.menuBtn.addEventListener("click", function(){
     updateJournalCount();
