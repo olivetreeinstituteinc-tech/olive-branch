@@ -580,7 +580,7 @@ function runApp(){
       "What's the silliest way you can think of to say good morning without using words?",
       "If you could make one everyday object make a funny sound every time it's used, what would you pick?",
       "What's a food combination you're convinced nobody else has ever tried?",
-      "If you had to give a dramatic movie-trailer voice to something boring that happened today, what would you narrate?",
+      "If today got turned into a movie trailer, what boring moment would you make sound exciting?",
       "What's the goofiest nickname you've ever been called?",
       "If you could swap voices with anyone in this family for an hour, who would you pick and what would you say?",
       "What's the weirdest fact you know that always makes people laugh?",
@@ -624,7 +624,7 @@ function runApp(){
       "Be really good at one thing or pretty good at a lot of things?",
       "Hot weather or cold weather?",
       "Loud parties or quiet hangouts?",
-      "Have the last word or let someone else have it?",
+      "Always get the last word in an argument, or let someone else have it?",
       "A pool or a trampoline?",
       "Watch the sunrise or the sunset?",
       "Be able to talk to animals or speak every human language?",
@@ -660,13 +660,13 @@ function runApp(){
       "What is a family tradition you would like to start?",
       "What is the best day trip or outing we have taken together so far, and why?",
       "If you could relive one day from this past year, which one would it be?",
-      "What is something you have learned from an older person in your life lately?",
+      "What is something an elder in your life, like a grandparent, teacher, or family friend, has taught you lately?",
       "What is a rule in our house that actually makes sense to you?",
       "What is one thing you would want to teach your own kids someday?",
       "What is a photo of our family that you love, and why?",
       "Tell us about a recent day you think we were proud of you.",
       "What is something small someone in this family does that makes you feel loved?",
-      "Do you know the story of how two people in this family first met? Tell it if you do.",
+      "Do you know the story of how your parents met? Tell it if you do.",
       "What do you know about where our family name comes from?",
       "Who in this family do you think you act the most like, and why?",
       "What is a story about this family that always gets told at gatherings?",
@@ -689,7 +689,7 @@ function runApp(){
       "What is a mistake this family made and grew from?",
       "What is a family saying or phrase we use that outsiders wouldn't understand?",
       "What is something you've noticed changes about this family every year?",
-      "Who is someone in this family's history, even someone you never met, that you wish you knew more about?",
+      "Who from our family's past do you wish you knew more about, even someone you never met?",
       "What is a game or activity that always brings this family together?",
       "What is something this family does differently than most families you know?",
       "What is a moment you felt like this family really understood you?",
@@ -697,7 +697,7 @@ function runApp(){
       "What is the loudest this family has ever laughed together?",
       "What is a family rule you think you'll keep when you have your own home someday?",
       "What is something this family has taught you about handling hard days?",
-      "What is a memory you think a younger sibling or cousin might not remember, that you want to tell them about?",
+      "What is a family memory you would want a younger person in this family to always know about?",
       "What is something you want to make sure this family always remembers?",
       "What is a challenge this family faced that made us closer instead of pulling us apart?",
       "What is something you've learned about patience from being part of this family?",
@@ -770,7 +770,7 @@ function runApp(){
       "What is something you wish grown-ups understood better about kids your age?",
       "What is a way someone showed you kindness recently?",
       "What is something you are working on getting better at?",
-      "What is something that's harder for you than it looks like it is for other people?",
+      "What is something that looks easy for other people but is actually hard for you?",
       "What is a time you stood up for yourself or someone else?",
       "What is something you do differently than you did a year ago?",
       "What is a worry you have that you haven't told anyone?",
@@ -778,7 +778,7 @@ function runApp(){
       "What is a time you felt really proud of someone else in this family?",
       "What is something you're still figuring out about yourself?",
       "What is a feeling you've gotten better at naming as you've gotten older?",
-      "What is something you do when you need space, and is that okay with everyone?",
+      "What is something you do when you need space to be alone?",
       "What is a time you forgave someone, even though it was hard?",
       "What is something that makes you feel safe?",
       "What is a time you changed your mind about something important?",
@@ -861,7 +861,7 @@ function runApp(){
       "What is a way you've already started becoming the person you want to be?",
       "What is something ordinary about your life that you'd miss if it were gone?"
     ]},
-    { key:"faith", label:"Faith & Gratitude", emoji:"\u{1F932}", accent:"#8B4A52", bg:"#F5E9EA", qs:[
+    { key:"faith", label:"Faith & Shukr", emoji:"\u{1F932}", accent:"#8B4A52", bg:"#F5E9EA", qs:[
       "What's a story from the Quran that means something to you right now, and why?",
       "What's a dua you say often, or one you would like to learn?",
       "Which prophet's story feels most meaningful to you at this point in your life?",
@@ -883,7 +883,7 @@ function runApp(){
       "What is a small act of worship that feels big to you?",
       "What is something you're grateful Allah has forgiven you for?",
       "What is a value from Islam that you think the world needs more of right now?",
-      "What is something you know about the Prophet's, peace be upon him, character that you try to copy?",
+      "What is something about Prophet Muhammad's character, peace be upon him, that you try to copy?",
       "What is a moment you felt Allah answered a dua?",
       "What is something you want to ask Allah for this week?",
       "What is a surah or ayah that you find comforting?",
@@ -917,7 +917,11 @@ function runApp(){
       "FREE PASS: Skip this turn. No explaining needed.",
       "SWAP: Ask someone else at the table any question you want instead, as long as you would be willing to answer it yourself.",
       "SPOTLIGHT: Everyone else at the table says one thing they love about you.",
-      "COMPLIMENT: Skip the question. Give someone at the table a genuine compliment instead."
+      "COMPLIMENT: Skip the question. Give someone at the table a genuine compliment instead.",
+      "DOUBLE UP: Draw the next card and have everyone at the table answer it, one at a time.",
+      "CHEER: Whatever the last person said, give them a real round of applause before moving on.",
+      "ENCORE: Ask the table what the funniest answer so far tonight was.",
+      "PICK: Whoever drew this gets to choose which category the next card comes from."
     ]}
   ];
 
@@ -1306,6 +1310,7 @@ function runApp(){
   els.catRow.appendChild(makeCatButton("surprise", "Surprise Me", "\u{1F500}", "#1F3A24", true));
   els.catRow.appendChild(makeCatButton("dinner", "Dinner Mode (6)", "\u{1F37D}\uFE0F", "#8C6B14", false));
   CATS.forEach(function(c){
+    if(c.key === "wildcard") return;
     els.catRow.appendChild(makeCatButton(c.key, c.label, c.emoji, c.accent, false));
   });
 
